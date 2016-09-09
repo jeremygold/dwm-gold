@@ -19,16 +19,19 @@ static const char *colors[SchemeLast][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "[1 tmux]", "[2 web]", "[3]", "[4 android]", "[5]", "[6 music]", "[7]", "[8]", "[9 hide]" };
+static const char *tags[] = { "[1 tmux]", "[2 web]", "[3 firefox]", "[4 android]", "[5]", "[6 music]", "[7]", "[8]", "[9 hide]" };
 
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	/* class              instance    title       tags mask     isfloating   monitor */
+	{ "Gimp",             NULL,       NULL,       0,            1,           -1 },
+	{ "Firefox",          NULL,       NULL,       1 << 2,       0,           0 },
+    { "Spotify",          NULL,       NULL,       1 << 5,       0,           0 },
+    { "google-chrome",    NULL,       NULL,       1 << 1,       0,           0 },
+    { "jetbrains-studio", NULL,       NULL,       1 << 3,       0,           0 },
 };
 
 /* layout(s) */
