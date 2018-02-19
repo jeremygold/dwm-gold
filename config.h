@@ -19,7 +19,7 @@ static const char *colors[SchemeLast][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "[1 tmux]", "[2 web]", "[3 firefox]", "[4 android]", "[5]", "[6 music]", "[7]", "[8]", "[9 hide]" };
+static const char *tags[] = { "[1 tmux]", "[2 Web]", "[3 Slack]", "[4 Dev IDE]", "[5]", "[6]", "[7]", "[8 Music]", "[9 hide]" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -29,9 +29,10 @@ static const Rule rules[] = {
 	/* class              instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",             NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",          NULL,       NULL,       1 << 2,       0,           0 },
-    { "Spotify",          NULL,       NULL,       1 << 5,       0,           0 },
+    { "Spotify",          NULL,       NULL,       1 << 7,       0,           0 },
     { "google-chrome",    NULL,       NULL,       1 << 1,       0,           0 },
     { "jetbrains-studio", NULL,       NULL,       1 << 3,       0,           0 },
+    { "code",             NULL,       NULL,       1 << 3,       0,           0 },
 };
 
 /* layout(s) */
@@ -63,10 +64,11 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 // static const char *termcmd[]  = { "terminator", NULL };
 static const char *termcmd[]  = { "/home/jeremy/dwm/st-gold/st", NULL };
 static const char *lockcmd[] = { "slock", NULL };
+static const char *screenshotcmd[] = { "scrot", "-s", "/home/jeremy/Desktop/Screenshot.png", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -82,7 +84,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
+	{ MODKEY,                       XK_p,      setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
@@ -90,6 +92,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+    { MODKEY|ShiftMask,             XK_s,     spawn,          {.v = screenshotcmd }},
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
