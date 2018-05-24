@@ -20,7 +20,7 @@ static const char *colors[SchemeLast][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "[1 tmux]", "[2 Web]", "[3 Slack]", "[4 Dev IDE]", "[5]", "[6]", "[7]", "[8 Music]", "[9 hide]" };
+static const char *tags[] = { "[1 tmux]", "[2 Web]", "[3 Slack]", "[4 IDE]", "[5]", "[6 Hangout]", "[7 Blend]", "[8 Music]", "[9 Hide]" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -32,7 +32,6 @@ static const Rule rules[] = {
 	{ "Firefox",          NULL,       NULL,       1 << 2,       0,           0 },
     { "Spotify",          NULL,       NULL,       1 << 7,       0,           0 },
     { "google-chrome",    NULL,       NULL,       1 << 1,       0,           0 },
-    { "jetbrains-studio", NULL,       NULL,       1 << 3,       0,           0 },
     { "code",             NULL,       NULL,       1 << 3,       0,           0 },
 };
 
